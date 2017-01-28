@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-#from  sec_edgar_download import download_sec_feeds
+# from  sec_edgar_download import download_sec_feeds
 
 """sec_edgar_dowload
 
 Usage:
-  sec_edgar_download getrss <from-year> <to-year> [--fm <from-month>] [--tm <to-month] [--wd <dir>]
-  sec_edgar_download getxbrl <from-year> <to-year> (-c  <cik> | -t <ticker>) [--ft <form-type>]  [--wd <dir>]
+  sec_edgar_download getrss <from-year> <to-year> [--fm <from-month>]
+                                        [--tm <to-month] [--wd <dir>]
+  sec_edgar_download getxbrl <from-year> <to-year> (-c  <cik> | -t <ticker>)
+                                        [--ft <form-type>]  [--wd <dir>]
 
   sec_edgar_download.py (-h | --help)
   sec_edgar_download.py --version
@@ -26,7 +28,8 @@ Options:
 # the imports have to be under the docstring
 # otherwise the docopt module does not work.
 from docopt import docopt
-from .indexer import SecIndexer, get_cik
+from indexer import SecIndexer, get_cik
+
 
 def main(args=None):
     arguments = docopt(__doc__, version='sec_edgar_download 0.1.0')
@@ -43,12 +46,14 @@ def main(args=None):
         from_month = arguments['--fm']
         if from_month is not None:
             from_month = int(from_month)
-        else: from_month = 1
+        else:
+            from_month = 1
 
         to_month = arguments['--tm']
         if to_month is not None:
             to_month = int(to_month)
-        else: to_month = 12
+        else:
+            to_month = 12
 
         indexer = SecIndexer(work_dir)
         indexer.download_sec_feeds(from_year, to_year, from_month, to_month)

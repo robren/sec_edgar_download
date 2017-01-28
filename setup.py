@@ -12,8 +12,8 @@ with open('HISTORY.rst') as history_file:
 requirements = [
     'bs4', 
     'docopt>=0.6.0',
-    'lxml' 
-    'pandas'
+    'lxml', 
+    'pandas',
     'requests'
     # TODO: put package requirements here
 ]
