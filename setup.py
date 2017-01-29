@@ -15,12 +15,10 @@ requirements = [
     'lxml', 
     'pandas',
     'requests'
-    # TODO: put package requirements here
 ]
 
 test_requirements = [
         'pytest'
-    # TODO: put package test requirements here
 ]
 
 setup(
