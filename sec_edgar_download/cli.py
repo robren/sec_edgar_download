@@ -32,7 +32,7 @@ from indexer import SecIndexer, get_cik
 
 
 def main(args=None):
-    arguments = docopt(__doc__, version='sec_edgar_download 0.1.0')
+    arguments = docopt(__doc__, version='sec_edgar_download 0.0.0')
     print(arguments)
 
     from_year = int(arguments['<from-year>'])
