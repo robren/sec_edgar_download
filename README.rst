@@ -24,6 +24,10 @@ and indexing, in a local sqlite3 database,  the RSS files; as well as
 downloading specific 10-K and 10-Q filings. 
 
 
+This is at a pre-alpha WIP phase. It's not yet uploaded to PyPi
+===============================================================
+
+
 ``sec_edgar_download`` — A cli program to index and download SEC filings
 ========================================================================
 
