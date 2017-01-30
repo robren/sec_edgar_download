@@ -24,21 +24,48 @@ and indexing, in a local sqlite3 database,  the RSS files; as well as
 downloading specific 10-K and 10-Q filings. 
 
 
-This is at a pre-alpha WIP phase. It's not yet uploaded to PyPi
-===============================================================
+**This is at a pre-alpha WIP phase. It's not yet uploaded to PyPi**
+
+sec_edgar_download package
+==========================
+
+Submodules
+----------
+
+sec_edgar_download.cli module::
+
+    """sec_edgar_dowload
+
+    Usage:
+    sec_edgar_download getrss <from-year> <to-year> [--fm <from-month>]
+                                            [--tm <to-month] [--wd <dir>]
+    sec_edgar_download getxbrl <from-year> <to-year> (-c  <cik> | -t <ticker>)
+                                            [--ft <form-type>]  [--wd <dir>]
+
+    sec_edgar_download.py (-h | --help)
+    sec_edgar_download.py --version
+
+    Options:
+    -h --help             Show this screen.
+    -c --cik <cik>        Central Index Key (CIK)
+    -t --ticker <ticker>  Ticker symbol
+    --version             Show version.
+    --fm <from-month>     From month: digits 1 to 12
+    --tm <to-month>       To  monthd: digits 1 to 12
+    --ft <form-type>      10-K or 10-Q
+    --wd <dir>            Working-directory  [default : ./edgar]
+
+    """
 
 
-``sec_edgar_download`` — A cli program to index and download SEC filings
-========================================================================
+sec_edgar_download.indexer module
+---------------------------------
 
-.. automodule:: sec_edgar_download.cli
-   :members:
+.. automodule:: sec_edgar_download.indexer
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
-``sec_edgar_download.indexer`` — The SecIndexer Class
------------------------------------------------------
-
-.. autoclass:: sec_edgar_download.indexer
-   :members: SecIndexer
 
 * Free software: Apache Software License 2.0
 * Documentation: https://sec-edgar-download.readthedocs.io.
@@ -55,9 +82,10 @@ Features
 Credits
 ---------
 
-This package was created with Cookiecutter_ and the `robren/cookiecutter-pypackage`_ project template, itself a fork of
+This package was created with Cookiecutter_ and the `robren/cookiecutter-pypackage fork`  project template a fork of
 the `audreyr/cookiecutter-pypackage`_ project template.
 
+.. _`robren/cookiecutter-pypackage fork`: https://github.com/robren/cookiecutter-pypackage
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 
