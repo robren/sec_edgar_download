@@ -58,15 +58,6 @@ sec_edgar_download.cli module::
     """
 
 
-sec_edgar_download.indexer module
----------------------------------
-
-.. automodule:: sec_edgar_download.indexer
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-
 * Free software: Apache Software License 2.0
 * Documentation: https://sec-edgar-download.readthedocs.io.
 

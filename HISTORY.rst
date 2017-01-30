@@ -1,8 +1,7 @@
-=======
 History
 =======
 
-0.0.0 (2017-01-28)
+0.0.2 (2017-01-30)
 ------------------
 
-* Pre-Alpha Work in Progress
+* First release to PyPi
