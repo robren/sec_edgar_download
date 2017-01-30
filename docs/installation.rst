@@ -4,10 +4,6 @@
 Installation
 ============
 
-Pre-Alpha
----------
-Currently the project is in Pre-Alpha so follow the instructions
-below for cloning the github repo and pip installing.
 
 Stable release
 --------------

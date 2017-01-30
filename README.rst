@@ -24,8 +24,6 @@ and indexing, in a local sqlite3 database,  the RSS files; as well as
 downloading specific 10-K and 10-Q filings. 
 
 
-**This is at a pre-alpha WIP phase. It's not yet uploaded to PyPi**
-
 sec_edgar_download package
 ==========================
 
@@ -73,10 +71,10 @@ Features
 Credits
 ---------
 
-This package was created with Cookiecutter_ and the `robren/cookiecutter-pypackage fork`  project template a fork of
+This package was created with Cookiecutter_ and the `robren/cookiecutter-pypackage` a fork of
 the `audreyr/cookiecutter-pypackage`_ project template.
 
-.. _`robren/cookiecutter-pypackage fork`: https://github.com/robren/cookiecutter-pypackage
+.. _`robren/cookiecutter-pypackage`: https://github.com/robren/cookiecutter-pypackage
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
 
