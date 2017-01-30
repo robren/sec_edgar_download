@@ -28,7 +28,7 @@ Options:
 # the imports have to be under the docstring
 # otherwise the docopt module does not work.
 from docopt import docopt
-from indexer import SecIndexer, get_cik
+from sec_edgar_download import indexer as ix 
 
 
 def main(args=None):
@@ -55,7 +55,7 @@ def main(args=None):
         else:
             to_month = 12
 
-        indexer = SecIndexer(work_dir)
+        indexer = ix.SecIndexer(work_dir)
         indexer.download_sec_feeds(from_year, to_year, from_month, to_month)
 
     elif arguments['getxbrl']:
@@ -64,11 +64,11 @@ def main(args=None):
             cik = int(cik)
         ticker = arguments['--ticker']
         if ticker is not None:
-            cik = get_cik(ticker)
+            cik = ix.get_cik(ticker)
 
         form_type = arguments['--ft']
 
-        indexer = SecIndexer(work_dir)
+        indexer = ix.SecIndexer(work_dir)
         indexer.download_xbrl_data(cik, from_year, to_year, form_type)
 
 

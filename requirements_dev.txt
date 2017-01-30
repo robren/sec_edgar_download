@@ -9,3 +9,8 @@ Sphinx==1.4.8
 cryptography==1.7
 PyYAML==3.11
 pytest==3.0.5
+bs4 
+docopt>=0.6.0
+lxml
+pandas
+requests
