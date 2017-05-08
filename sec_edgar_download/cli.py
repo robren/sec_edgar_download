@@ -20,7 +20,7 @@ Options:
   -t --ticker <ticker>  Ticker symbol
   --version             Show version.
   --fm <from-month>     From month: digits 1 to 12
-  --tm <to-month>       To  monthd: digits 1 to 12
+  --tm <to-month>       To month: digits 1 to 12
   --ft <form-type>      10-K or 10-Q
   --wd <dir>            Working-directory  [default : ./edgar]
 
@@ -67,6 +67,8 @@ def main(args=None):
             cik = ix.get_cik(ticker)
 
         form_type = arguments['--ft']
+        if form_type is None:
+            form_type = 'All'
 
         indexer = ix.SecIndexer(work_dir)
         indexer.download_xbrl_data(cik, from_year, to_year, form_type)

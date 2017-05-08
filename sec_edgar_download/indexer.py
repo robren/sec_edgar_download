@@ -88,7 +88,7 @@ class SecIndexer():
 
         # FIXME, need to use a private logger not the root one.
         # logging.basicConfig(filename='logging.log',level=logging.DEBUG)
-        logging.basicConfig(level=logging.DEBUG)
+        logging.basicConfig(level=logging.INFO)
 
         self._prep_directories()
         self._prep_database_table()
@@ -203,7 +203,7 @@ class SecIndexer():
         if not os.path.exists(feed_file):
             edgar_filings_feed = ('http://www.sec.gov/Archives/edgar/monthly/'
                                   + feed_filename)
-            logging.debug('Edgar Filings Feed =%s', edgar_filings_feed)
+            logging.debug('Edgar Filings Feed = %s', edgar_filings_feed)
 
             response = None
             try:
@@ -211,7 +211,7 @@ class SecIndexer():
                 response.raise_for_status()
             except requests.exceptions.RequestException as err:
                 logging.exception("RequestException:%s", err)
-                os.sys.exit(1)
+                #os.sys.exit(1)
 
             with open(feed_file, 'w') as file:
                 file.write(response.text)
@@ -265,9 +265,8 @@ class SecIndexer():
                     assert label == 'xbrlFiles'
                     xbrl_url = _parse_xbrlfiles(edgar_sub_elem, edgar_ns, item)
                     edgar_dict[key].append(xbrl_url)
-
                 else:
-                    # logging.debug('text =  %s',edgar_sub_elem.text)
+                 #  logging.debug('text =  %s',edgar_sub_elem.text)
                     edgar_dict[key].append(edgar_sub_elem.text)
 
         return edgar_dict
@@ -301,8 +300,6 @@ class SecIndexer():
                          columns)
         table_parms = ('''CREATE TABLE IF NOT EXISTS feeds ({})'''
                        .format(columns))
-        print(table_parms)
-
         conn = sqlite3.connect(self.database)
         curr = conn.cursor()
         curr.execute(table_parms)
