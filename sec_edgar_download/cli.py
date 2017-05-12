@@ -8,7 +8,7 @@
 Usage:
   sec_edgar_download getrss <from-year> <to-year> [--fm <from-month>]
                                         [--tm <to-month] [--wd <dir>]
-  sec_edgar_download getxbrl <from-year> <to-year> (-c  <cik> | -t <ticker>)
+  sec_edgar_download getxbrl <from-year> <to-year> (-c  <cik> | -t <ticker> | -f <file>)
                                         [--ft <form-type>]  [--wd <dir>]
 
   sec_edgar_download.py (-h | --help)
@@ -18,6 +18,7 @@ Options:
   -h --help             Show this screen.
   -c --cik <cik>        Central Index Key (CIK)
   -t --ticker <ticker>  Ticker symbol
+  -f --file <file>      File containing tickers
   --version             Show version.
   --fm <from-month>     From month: digits 1 to 12
   --tm <to-month>       To month: digits 1 to 12
@@ -59,20 +60,30 @@ def main(args=None):
         indexer.download_sec_feeds(from_year, to_year, from_month, to_month)
 
     elif arguments['getxbrl']:
-        cik = arguments['--cik']
-        if cik is not None:
-            cik = int(cik)
-        ticker = arguments['--ticker']
-        if ticker is not None:
-            cik = ix.get_cik(ticker)
-
         form_type = arguments['--ft']
         if form_type is None:
             form_type = 'All'
 
-        indexer = ix.SecIndexer(work_dir)
-        indexer.download_xbrl_data(cik, from_year, to_year, form_type)
+        file = arguments['--file']
+        if file is None:
+            cik = arguments['--cik']
+            if cik is not None:
+                cik = int(cik)
+            ticker = arguments['--ticker']
+            if ticker is not None:
+                cik = ix.get_cik(ticker)
 
+            indexer = ix.SecIndexer(work_dir)
+            indexer.download_xbrl_data(cik, from_year, to_year, form_type)
+        else:
+            with open(file) as t_file:
+                for line in t_file: # Each line contains a ticker
+                    print("\nTicker =",line)
+                    cik = ix.get_cik(line)
+                    indexer = ix.SecIndexer(work_dir)
+                    indexer.download_xbrl_data(cik, from_year, to_year, form_type)
+
+        
 
 if __name__ == '__main__':
     main()
