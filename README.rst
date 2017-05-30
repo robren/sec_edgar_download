@@ -37,7 +37,7 @@ sec_edgar_download.cli module::
     Usage:
     sec_edgar_download getrss <from-year> <to-year> [--fm <from-month>]
                                             [--tm <to-month] [--wd <dir>]
-    sec_edgar_download getxbrl <from-year> <to-year> (-c  <cik> | -t <ticker>)
+    sec_edgar_download getxbrl <from-year> <to-year> (-c  <cik> | -t <ticker> | -f <file>)
                                             [--ft <form-type>]  [--wd <dir>]
 
     sec_edgar_download.py (-h | --help)
@@ -47,14 +47,14 @@ sec_edgar_download.cli module::
     -h --help             Show this screen.
     -c --cik <cik>        Central Index Key (CIK)
     -t --ticker <ticker>  Ticker symbol
+    -f --file <file>      File containing tickers
     --version             Show version.
     --fm <from-month>     From month: digits 1 to 12
-    --tm <to-month>       To  monthd: digits 1 to 12
+    --tm <to-month>       To month: digits 1 to 12
     --ft <form-type>      10-K or 10-Q
     --wd <dir>            Working-directory  [default : ./edgar]
 
     """
-
 
 * Free software: Apache Software License 2.0
 * Documentation: https://sec-edgar-download.readthedocs.io.
