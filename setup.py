@@ -23,7 +23,7 @@ test_requirements = [
 
 setup(
     name='sec_edgar_download',
-    version='0.1.1',
+    version='0.1.2',
     description="Downloads sec xbrl filings",
     long_description=readme + '\n\n' + history,
     author="Robert Rennison",
