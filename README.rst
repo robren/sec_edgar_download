@@ -68,8 +68,10 @@ Features
   sqlite database.
 - Downloads 10-Q and 10-K  xbrl filings for a company over a  specified date range.
 
-Usage Example
--------------
+Usage Examples
+--------------
+
+From the command line.
 
 .. code:: bash
 
@@ -100,6 +102,47 @@ Usage Example
 			├── xbrlrss-2017-10.xml
 			├── xbrlrss-2017-11.xml
 			└── xbrlrss-2017-12.xml
+
+From within a python script
+
+.. code:: bash
+
+    # Run the following from ipython or Jupyter Notebook
+
+    from sec_edgar_download import indexer as ix
+    work_dir = './edgar'
+    from_year = 2016
+    to_year = 2016
+    indexer = ix.SecIndexer(work_dir)
+    indexer.download_sec_feeds(from_year, to_year)
+
+    INFO:root:Downloaded RSS feed: ./edgar/rss-archives/xbrlrss-2016-01.xml
+    INFO:root:Parsing RSS feed ./edgar/rss-archives/xbrlrss-2016-01.xml
+    INFO:root:Downloaded RSS feed: ./edgar/rss-archives/xbrlrss-2016-02.xml
+    INFO:root:Parsing RSS feed ./edgar/rss-archives/xbrlrss-2016-02.xml
+    INFO:root:Downloaded RSS feed: ./edgar/rss-archives/xbrlrss-2016-03.xml
+
+    ... snip
+
+    INFO:root:Dropped 436 duplicates
+    INFO:root:32662 items parsed
+    INFO:root:Saved feed details to ./edgar/edgar.db
+
+    cik = ix.get_cik('INTC')
+
+    indexer.download_xbrl_data(cik,from_year, to_year, 'All')
+    Downloading file http://www.sec.gov/Archives/edgar/data/50863/000005086316000105/intc-20151226.xml
+    To ./edgar/filings/intc-20151226.xml
+    Downloading file http://www.sec.gov/Archives/edgar/data/50863/000005086316000125/intc-20160402.xml
+    To ./edgar/filings/intc-20160402.xml
+    Downloading file http://www.sec.gov/Archives/edgar/data/50863/000005086316000142/intc-20160702.xml
+    To ./edgar/filings/intc-20160702.xml
+    Downloading file http://www.sec.gov/Archives/edgar/data/50863/000005086316000153/intc-20161001.xml
+    To ./edgar/filings/intc-20161001.xml
+
+
+
+
 
 
 
