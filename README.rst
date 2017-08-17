@@ -73,6 +73,9 @@ Usage Examples
 
 From the command line.
 
+- Firstly download the rss feeds, these get added to a local database
+- Next specify which tickers to download the xbrl filings for.
+
 .. code:: bash
 
 	pip install sec_edgar_download

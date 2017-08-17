@@ -33,7 +33,7 @@ from sec_edgar_download import indexer as ix
 
 
 def main(args=None):
-    arguments = docopt(__doc__, version='sec_edgar_download 0.0.0')
+    arguments = docopt(__doc__, version='sec_edgar_download 0.1.2')
     print(arguments)
 
     from_year = int(arguments['<from-year>'])

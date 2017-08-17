@@ -186,7 +186,7 @@ class SecIndexer():
 
         Args:
             year (int); The year of the feed
-            month (int); The year of the feed
+            month (int); The month of the feed
 
         Returns:
             feed_file (str): The location of the downloaded RSS file.
